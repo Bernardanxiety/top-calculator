@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  min-width: 320px;
+}
+
+.grid {
+  gap: 2px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  background-color: hsl(0, 0%, 70%);
+}
+
+/* grid-item and backgrounds */
+.grid-item {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  background-color: hsl(0, 0%, 90%);
+}
+
+.grid-item:hover {
+  cursor: pointer;
+}
+
+.grid-item:hover {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.white-bg {
+  background-color: hsl(0, 0%, 95%);
+
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.white-bg:hover {
+  background-color: hsl(0, 0%, 85%);
+}
+
+.blue-bg {
+  background-color: hsl(219, 100%, 60%);
+}
+
+.blue-bg:hover {
+  background-color: hsl(219, 100%, 40%);
+}
+
+/* result div */
+.result-parent {
+  background-color: hsl(0, 0%, 80%);
+  text-align: right;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  flex-grow: 1;
+}
+
+.current {
+  padding: 3rem 1.5rem 0 0;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.current::after {
+  content: "7 +";
+  font-size: 1rem;
+  position: absolute;
+  top: 2rem;
+  right: 1rem;
+}
+
+.history {
+  padding: 0.45rem;
+  display: inline-block;
+}
+
+.history:hover {
+  cursor: pointer;
+  font-size: 1.1rem;
+}

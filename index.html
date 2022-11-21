@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/ba622b90b9.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="result-parent">
+        <div class="history-btn">
+          <i class="fa-solid history fa-clock-rotate-left"></i>
+        </div>
+        <div class="result"><p class="current">0</p></div>
+      </div>
+      <div class="grid">
+        <div data-type="%" class="grid-item">%</div>
+        <div data-type="CE" class="grid-item">CE</div>
+        <div data-type="C" class="grid-item">C</div>
+        <div data-type="remove" class="grid-item">
+          <i class="fa-solid fa-delete-left"></i>
+        </div>
+        <div data-type="1/x" class="grid-item">1/x</div>
+        <div data-type="root" class="grid-item">
+          <span>x<sup>2</sup></span>
+        </div>
+        <div data-type="sqrt" class="grid-item">
+          <i class="fa-solid fa-square-root-variable"></i>
+        </div>
+        <div data-type="divide" class="grid-item">
+          <i class="fa-solid fa-divide"></i>
+        </div>
+        <div data-type="digit" class="grid-item white-bg">7</div>
+        <div data-type="digit" class="grid-item white-bg">8</div>
+        <div data-type="digit" class="grid-item white-bg">9</div>
+        <div data-type="multiply" class="grid-item">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div data-type="digit" class="grid-item white-bg">4</div>
+        <div data-type="digit" class="grid-item white-bg">5</div>
+        <div data-type="digit" class="grid-item white-bg">6</div>
+        <div data-type="substract" class="grid-item">-</div>
+        <div data-type="digit" class="grid-item white-bg">1</div>
+        <div data-type="digit" class="grid-item white-bg">2</div>
+        <div data-type="digit" class="grid-item white-bg">3</div>
+        <div data-type="add" class="grid-item">+</div>
+        <div data-type="minus" class="grid-item white-bg">+/-</div>
+        <div data-type="digit" class="grid-item white-bg">0</div>
+        <div data-type="decimal" class="grid-item white-bg">,</div>
+        <div data-type="equal" class="grid-item blue-bg">=</div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
