@@ -17,43 +17,37 @@
         <div class="history-btn">
           <i class="fa-solid history fa-clock-rotate-left"></i>
         </div>
-        <div class="result"><p class="current">0</p></div>
+        <div class="result"><p class="current"></p></div>
       </div>
       <div class="grid">
-        <div data-type="%" class="grid-item">%</div>
-        <div data-type="CE" class="grid-item">CE</div>
-        <div data-type="C" class="grid-item">C</div>
-        <div data-type="remove" class="grid-item">
-          <i class="fa-solid fa-delete-left"></i>
-        </div>
-        <div data-type="1/x" class="grid-item">1/x</div>
-        <div data-type="root" class="grid-item">
+        <div data-type="operator" id="%" class="grid-item">%</div>
+        <div data-type="minor" id="CE" class="grid-item">CE</div>
+        <div data-type="minor" id="C" class="grid-item">C</div>
+        <div data-type="minor" id="remove" class="grid-item"><-</div>
+        <div data-type="operator" id="1/x" class="grid-item">1/x</div>
+        <div data-type="operator" id="root" class="grid-item">
           <span>x<sup>2</sup></span>
         </div>
-        <div data-type="sqrt" class="grid-item">
-          <i class="fa-solid fa-square-root-variable"></i>
+        <div data-type="operator" id="sqrt" class="grid-item">sqrt</div>
+        <div data-type="operator" id="divide" class="grid-item">/</div>
+        <div data-type="digit" id="7" class="grid-item white-bg">7</div>
+        <div data-type="digit" id="8" class="grid-item white-bg">8</div>
+        <div data-type="digit" id="9" class="grid-item white-bg">9</div>
+        <div data-type="operator" id="multiply" class="grid-item">x</div>
+        <div data-type="digit" id="4" class="grid-item white-bg">4</div>
+        <div data-type="digit" id="5" class="grid-item white-bg">5</div>
+        <div data-type="digit" id="6" class="grid-item white-bg">6</div>
+        <div data-type="operator" id="substract" class="grid-item">-</div>
+        <div data-type="digit" id="1" class="grid-item white-bg">1</div>
+        <div data-type="digit" id="2" class="grid-item white-bg">2</div>
+        <div data-type="digit" id="3" class="grid-item white-bg">3</div>
+        <div data-type="operator" id="add" class="grid-item">+</div>
+        <div data-type="operator" id="minus" class="grid-item white-bg">
+          +/-
         </div>
-        <div data-type="divide" class="grid-item">
-          <i class="fa-solid fa-divide"></i>
-        </div>
-        <div data-type="digit" class="grid-item white-bg">7</div>
-        <div data-type="digit" class="grid-item white-bg">8</div>
-        <div data-type="digit" class="grid-item white-bg">9</div>
-        <div data-type="multiply" class="grid-item">
-          <i class="fa-solid fa-xmark"></i>
-        </div>
-        <div data-type="digit" class="grid-item white-bg">4</div>
-        <div data-type="digit" class="grid-item white-bg">5</div>
-        <div data-type="digit" class="grid-item white-bg">6</div>
-        <div data-type="substract" class="grid-item">-</div>
-        <div data-type="digit" class="grid-item white-bg">1</div>
-        <div data-type="digit" class="grid-item white-bg">2</div>
-        <div data-type="digit" class="grid-item white-bg">3</div>
-        <div data-type="add" class="grid-item">+</div>
-        <div data-type="minus" class="grid-item white-bg">+/-</div>
-        <div data-type="digit" class="grid-item white-bg">0</div>
-        <div data-type="decimal" class="grid-item white-bg">,</div>
-        <div data-type="equal" class="grid-item blue-bg">=</div>
+        <div data-type="digit" id="0" class="grid-item white-bg">0</div>
+        <div data-type="minor" id="decimal" class="grid-item white-bg">,</div>
+        <div data-type="minor" id="equal" class="grid-item blue-bg">=</div>
       </div>
     </div>
     <script src="app.js"></script>

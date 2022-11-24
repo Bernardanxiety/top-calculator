@@ -76,7 +76,7 @@ body {
 }
 
 .current::after {
-  content: "7 +";
+  content: attr(content);
   font-size: 1rem;
   position: absolute;
   top: 2rem;
