@@ -11,13 +11,18 @@ const add = (a, b) => a + b;
 const substract = (a, b) => a - b;
 
 const equal = (a, b) => {
-  currentNumber = Number(current.textContent.replace(",", "."));
-  current.setAttribute(
-    "content",
-    `${previousNumber} ${operand} ${currentNumber}`
-  );
-  current.textContent = operations[toDo](previousNumber, currentNumber);
-  toDo = undefined;
+  if (previousNumber === 0) {
+    previousNumber = Number(current.textContent.replace(",", "."));
+    current.setAttribute("content", `${previousNumber} =`);
+  } else {
+    currentNumber = Number(current.textContent.replace(",", "."));
+    current.setAttribute(
+      "content",
+      `${previousNumber} ${operand} ${currentNumber}`
+    );
+    current.textContent = operations[toDo](previousNumber, currentNumber);
+    toDo = undefined;
+  }
 };
 const digitAdd = (e) => (current.textContent += e.target.id);
 const remove = (e) =>
@@ -39,6 +44,26 @@ const clear = (e) => {
   current.textContent = currentNumber;
   current.setAttribute("content", "");
 };
+const multiply = (a, b) => a * b;
+const divideByNumber = () => {
+  current.textContent = (1 / (current.textContent * 1)).replace(".", ",");
+};
+const percentage = () => {
+  current.textContent = (current.textContent.replace(",", ".") * 1) / 100;
+};
+
+const sqrt = () => {
+  current.textContent = Math.sqrt(current.textContent.replace(",", ".") * 1);
+};
+
+const root = () =>
+  (current.textContent =
+    current.textContent.replace(",", ".") *
+    1 *
+    (current.textContent.replace(",", ".") * 1));
+
+const minus = () =>
+  (current.textContent = current.textContent.replace(",", ",") * 1 * -1);
 
 const operations = {
   add: add,
@@ -49,6 +74,12 @@ const operations = {
   C: clear,
   substract: substract,
   equal: equal,
+  multiply: multiply,
+  divideByNumber: divideByNumber,
+  percentage: percentage,
+  sqrt: sqrt,
+  root: root,
+  minus: minus,
 };
 
 buttons.forEach((button) =>
@@ -98,6 +129,7 @@ buttons.forEach((button) =>
         console.log(operations[e.target.id]);
         operations[e.target.id](e);
     }
+    current.textContent = current.textContent.toString().replace(".", ",");
   })
 );
 
