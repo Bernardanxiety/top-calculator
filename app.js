@@ -1,5 +1,8 @@
 const buttons = document.querySelectorAll(".grid-item");
 const current = document.querySelector(".current");
+const list = document.querySelector(".list");
+const historyDiv = document.querySelector(".history");
+const historyOpener = document.querySelector(".history-btn");
 // const previous = document.querySelector(".current::after");
 
 let currentNumber = 0;
@@ -7,11 +10,37 @@ let previousNumber = 0;
 let operand;
 let toDo;
 
+historyOpener.addEventListener("click", () => {
+  historyDiv.classList.toggle("history-visible");
+});
+
+const addHistory = () => {
+  const li = document.createElement("li");
+  const pSmall = document.createElement("p");
+  const pBig = document.createElement("p");
+  pSmall.classList.add("pSmall");
+  pBig.classList.add("pBig");
+
+  pSmall.textContent = `${previousNumber} ${operand} ${currentNumber} =`;
+  pBig.textContent = `${operations[toDo](
+    previousNumber,
+    current.textContent.replace(",", ".") * 1
+  )}`;
+  li.appendChild(pSmall);
+  li.appendChild(pBig);
+  list.appendChild(li);
+};
+
+const clearHistory = () => {
+  const li = document.querySelectorAll(".list li");
+  li.forEach((li) => list.removeChild(li));
+};
+
 const add = (a, b) => a + b;
 const substract = (a, b) => a - b;
 
 const equal = (a, b) => {
-  if (previousNumber === 0) {
+  if (operand === undefined) {
     previousNumber = Number(current.textContent.replace(",", "."));
     current.setAttribute("content", `${previousNumber} =`);
   } else {
@@ -20,6 +49,7 @@ const equal = (a, b) => {
       "content",
       `${previousNumber} ${operand} ${currentNumber}`
     );
+    addHistory();
     current.textContent = operations[toDo](previousNumber, currentNumber);
     toDo = undefined;
   }
@@ -43,6 +73,7 @@ const clear = (e) => {
   toDo = undefined;
   current.textContent = currentNumber;
   current.setAttribute("content", "");
+  clearHistory();
 };
 const multiply = (a, b) => a * b;
 const divideByNumber = () => {
@@ -65,6 +96,8 @@ const root = () =>
 const minus = () =>
   (current.textContent = current.textContent.replace(",", ",") * 1 * -1);
 
+const divide = (a, b) => a / b;
+
 const operations = {
   add: add,
   digit: digitAdd,
@@ -80,6 +113,7 @@ const operations = {
   sqrt: sqrt,
   root: root,
   minus: minus,
+  divide: divide,
 };
 
 buttons.forEach((button) =>
@@ -113,6 +147,7 @@ buttons.forEach((button) =>
           toDo = e.target.id;
         } else {
           currentNumber = Number(current.textContent.replace(",", "."));
+          addHistory();
           previousNumber = operations[toDo](previousNumber, currentNumber);
           current.textContent = "0";
 
@@ -123,10 +158,8 @@ buttons.forEach((button) =>
           );
         }
         operand = e.target.textContent;
-        console.log(operations[e.target.id]);
         break;
       case "minor":
-        console.log(operations[e.target.id]);
         operations[e.target.id](e);
     }
     current.textContent = current.textContent.toString().replace(".", ",");
