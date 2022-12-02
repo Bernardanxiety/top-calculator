@@ -143,3 +143,15 @@ li:not(:first-of-type) {
   width: 100%;
   overflow: scroll;
 }
+
+.clear-history {
+  padding: 0.25em;
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0.25em;
+}
+
+.clear-history:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}

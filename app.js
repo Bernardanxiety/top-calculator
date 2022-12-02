@@ -3,7 +3,7 @@ const current = document.querySelector(".current");
 const list = document.querySelector(".list");
 const historyDiv = document.querySelector(".history");
 const historyOpener = document.querySelector(".history-btn");
-// const previous = document.querySelector(".current::after");
+const clearHistoryButton = document.querySelector(".clear-history");
 
 let currentNumber = 0;
 let previousNumber = 0;
@@ -13,6 +13,13 @@ let toDo;
 historyOpener.addEventListener("click", () => {
   historyDiv.classList.toggle("history-visible");
 });
+
+const clearHistory = () => {
+  const li = document.querySelectorAll(".list li");
+  li.forEach((li) => list.removeChild(li));
+};
+
+clearHistoryButton.addEventListener("click", clearHistory);
 
 const addHistory = () => {
   const li = document.createElement("li");
@@ -29,11 +36,6 @@ const addHistory = () => {
   li.appendChild(pSmall);
   li.appendChild(pBig);
   list.appendChild(li);
-};
-
-const clearHistory = () => {
-  const li = document.querySelectorAll(".list li");
-  li.forEach((li) => list.removeChild(li));
 };
 
 const add = (a, b) => a + b;
